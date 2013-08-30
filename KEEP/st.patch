@@ -1,0 +1,32 @@
+--- st-0.4.1.org/config.mk	
++++ st-0.4.1/config.mk
+@@ -4,17 +4,17 @@
+ # Customize below to fit your system
+ 
+ # paths
+-PREFIX = /usr/local
++PREFIX = /
+ MANPREFIX = ${PREFIX}/share/man
+ 
+-X11INC = /usr/X11R6/include
+-X11LIB = /usr/X11R6/lib
++X11INC = /include/X11
++X11LIB = /lib/X11
+ 
+ # includes and libs
+-INCS = -I. -I/usr/include -I${X11INC} \
++INCS = -I. -I/include -I${X11INC} \
+        `pkg-config --cflags fontconfig` \
+        `pkg-config --cflags freetype2`
+-LIBS = -L/usr/lib -lc -L${X11LIB} -lX11 -lutil -lXext -lXft \
++LIBS = -L/lib -lc -L${X11LIB} -lX11 -lutil -lXext -lXft \
+        `pkg-config --libs fontconfig`  \
+        `pkg-config --libs freetype2`
+ 
+@@ -24,5 +24,4 @@
+ LDFLAGS += -g ${LIBS}
+ 
+ # compiler and linker
+-CC ?= cc
+-
++CC ?= musl-gcc 
