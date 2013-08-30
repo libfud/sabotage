@@ -6,6 +6,9 @@ sha512=8589de3133881616ad2fa5e66338c4a06a01cb102dba7f60b63127fcf359227cff8fef652
 http://ffmpeg.org/releases/ffmpeg-2.0.1.tar.bz2
 
 [deps]
+alsa-lib
+libvorbis
+libflac
 
 [build]
 patch -p1 < "$K"/ffmpeg.patch
