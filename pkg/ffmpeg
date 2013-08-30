@@ -11,7 +11,7 @@ libvorbis
 libflac
 
 [build]
-patch -p1 < "$K"/ffmpeg.patch
+patch -p1 < "$K"/ffmpeg.patch || exit 1
 CFLAGS="$optcflags" LDFLAGS="$optldflags" \
   ./configure --prefix="$butch_prefix" --disable-debug || exit 1
 make -j$MAKE_THREADS || exit 1
