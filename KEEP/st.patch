@@ -5,13 +5,13 @@
  
  # paths
 -PREFIX = /usr/local
-+PREFIX = /
++PREFIX = ${butch_prefix}
  MANPREFIX = ${PREFIX}/share/man
  
 -X11INC = /usr/X11R6/include
 -X11LIB = /usr/X11R6/lib
-+X11INC = /include/X11
-+X11LIB = /lib/X11
++X11INC = ${PREFIX}/include
++X11LIB = ${PREFIX}/lib
  
  # includes and libs
 -INCS = -I. -I/usr/include -I${X11INC} \
@@ -29,4 +29,4 @@
  # compiler and linker
 -CC ?= cc
 -
-+CC ?= musl-gcc 
++CC ?= gcc 
