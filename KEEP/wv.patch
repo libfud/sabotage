@@ -1,0 +1,26 @@
+--- wv.orig/help/GNUmakefile	2013-09-01 04:06:26.255039008 +0000
++++ wv-1.2.9/help/GNUmakefile	2013-09-01 04:09:07.069636272 +0000
+@@ -15,10 +15,10 @@
+ 
+ 
+ 
+-pkgdatadir = $(datadir)/wv
+-pkgincludedir = $(includedir)/wv
+-pkglibdir = $(libdir)/wv
+-pkglibexecdir = $(libexecdir)/wv
++pkgdatadir = $(butch_prefix)/data
++pkgincludedir = $(butch_prefix)/include
++pkglibdir = $(butch_prefix)/lib
++pkglibexecdir = $(butch_prefix)/libexec
+ am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
+ install_sh_DATA = $(install_sh) -c -m 644
+ install_sh_PROGRAM = $(install_sh) -c
+@@ -184,7 +184,7 @@
+ build_vendor = pc
+ builddir = .
+ datadir = ${datarootdir}
+-datarootdir = ${prefix}/share
++datarootdir = ${butch_prefix}/share
+ docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
+ dvidir = ${docdir}
+ exec_prefix = ${prefix}

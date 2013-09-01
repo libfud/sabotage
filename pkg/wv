@@ -1,0 +1,28 @@
+[main]
+filesize=616256
+sha512=ae5c762012595ce8922bfda8749ad3e9cb055edab30152c3a5feaaf3ca6601f357d1e301b179e9a5860cd99452dd6e63e5f44f5bcc12f8db148bdd334e0200a5
+
+[mirrors]
+http://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
+
+[deps]
+libpng
+libgsf
+
+[build]
+#patch -p1 < "$K"/wv.patch || exit 1
+
+CFLAGS="-D_GNU_SOURCE $optcflags" LDFLAGS="$optldflags" \
+  ./configure --prefix="$butch_prefix" \
+   --disable-shared || exit 1
+
+patch -p1 < "$K"/wv.patch || exit 1
+#this is fucking messy as hell
+#fuck bash
+mkdir -p /opt/wv/share/wv
+mkdir -p /opt/wv/share/man/man1
+mkdir -p /opt/wv/bin
+mkdir -p /opt/wv/lib/pkgconfig
+mkdir -p /opt/wv/include/wv
+make -j$MAKE_THREADS || exit 1
+make DESTDIR="$butch_install_dir" install || exit 1
