@@ -4,7 +4,7 @@ VERSION = 6.0
 # Customize below to fit your system
 
 # paths
-PREFIX = /
+PREFIX =${butch_prefix}
 MANPREFIX = ${PREFIX}/share/man
 
 X11INC = /opt/libx11/include
@@ -21,7 +21,7 @@ LIBS = -L/lib -lc -lXau -lXdmcp -lxcb -L${X11LIB} -lX11 -lX11-xcb ${XINERAMALIBS
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
 #CFLAGS = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
-CFLAGS = -std=c99 -pedantic -Wall -Os ${INCS} ${CPPFLAGS}
+CFLAGS = -std=gnu99 -pedantic -Wall -Os ${INCS} ${CPPFLAGS} 
 #LDFLAGS = -g ${LIBS}
 LDFLAGS = -s ${LIBS}
 
