@@ -1,0 +1,24 @@
+[main]
+filesize=537232
+sha512=b707ae8098f9b970be1b954c9a2e3bb1ae25d155a2b85331c2196c23bd9cb7c8512715748b765018445adff97bab511cab5c8e6f9cb3f51c7e8aedbcd20cc302
+
+[mirrors]
+http://www.musicpd.org/download/mpd/0.17/mpd-0.17.5.tar.xz
+
+[deps]
+alsa-lib
+libflac
+libmad
+mpg123
+libvorbis
+libogg
+
+[build]
+#patch -p1 < "$K"/some.patch || exit 1
+CC=gcc-4.7.3 \
+CFLAGS="-D_GNU_SOURCE $optcflags" LDFLAGS="$optldflags" \
+  ./configure -C --prefix="$butch_prefix" \
+  --disable-ffmpeg  || exit 1
+
+make -j$MAKE_THREADS || exit 1
+make DESTDIR="$butch_install_dir" install || exit 1
