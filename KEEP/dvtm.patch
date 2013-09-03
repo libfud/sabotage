@@ -1,0 +1,34 @@
+--- dvtm-0.9.org/config.mk
++++ dvtm-0.9/config.mk
+@@ -0,23 +0,23 @@
+ # dvtm version
+ VERSION = 0.9
+
+ # Customize below to fit your system
+
+-PREFIX = /usr/local
++PREFIX = /
+ MANPREFIX = ${PREFIX}/share/man
+
+-INCS = -I. -I/usr/include -I/usr/local/include
++INCS = -I. -I/include 
+-LIBS = -lc -lutil -lncursesw
++LIBS = -lc -lutil -lncurses
+ # NetBSD
+ #LIBS = -lc -lutil -lcurses
+ # AIX
+ #LIBS = -lc -lncursesw
+ # Cygwin
+ #INCS += -I/usr/include/ncurses
+
+-CFLAGS += -std=c99 -Os ${INCS} -DVERSION=\"${VERSION}\" -DNDEBUG
++CFLAGS += -std=c99 -Os ${INCS} -DVERSION=\"${VERSION}\" -DNDEBUG
+-LDFLAGS += -L/usr/lib -L/usr/local/lib ${LIBS}
++LDFLAGS += -L/lib ${LIBS}
+
+-DEBUG_CFLAGS = ${CFLAGS} -UNDEBUG -O0 -g -ggdb -Wall -Wextra -Wno-missing-field-initializers -Wno-unused-parameter
++DEBUG_CFLAGS = ${CFLAGS} -UNDEBUG -g -ggdb   
+
+-CC = cc
++CC = musl-gcc
+

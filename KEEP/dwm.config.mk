@@ -4,11 +4,11 @@ VERSION = 6.0
 # Customize below to fit your system
 
 # paths
-PREFIX = /
+PREFIX =${butch_prefix}
 MANPREFIX = ${PREFIX}/share/man
 
-X11INC = /opt/libx11/include
-X11LIB = /opt/libx11/lib
+X11INC = ${PREFIX}/include
+X11LIB = ${PREFIX}/lib
 
 # Xinerama
 XINERAMALIBS = -L${X11LIB} -lXinerama
@@ -20,14 +20,8 @@ LIBS = -L/lib -lc -lXau -lXdmcp -lxcb -L${X11LIB} -lX11 -lX11-xcb ${XINERAMALIBS
 
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
-#CFLAGS = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
-CFLAGS = -std=c99 -pedantic -Wall -Os ${INCS} ${CPPFLAGS}
-#LDFLAGS = -g ${LIBS}
+CFLAGS = -std=gnu99 -pedantic -Wall -Os ${INCS} ${CPPFLAGS} 
 LDFLAGS = -s ${LIBS}
-
-# Solaris
-#CFLAGS = -fast ${INCS} -DVERSION=\"${VERSION}\"
-#LDFLAGS = ${LIBS}
 
 # compiler and linker
 CC = musl-gcc

@@ -11,6 +11,7 @@ libvorbis
 libflac
 bash
 
+
 [build]
 [ -z "$butch_prefix" ] && butch_prefix=/
 sed -i 's@/bin/sh@/bin/bash@' configure
