@@ -9,7 +9,6 @@ http://slackbuilds.org/mirror/slackware/slackware-14.0/source/n/bsd-finger/bsd-f
 [build]
 patch -p1 < "$K"/bsd-finger-0.17.diff || exit 1
 patch -p1 < "$K"/bsd-finger-lprint.patch || exit 1
-
 ./configure --prefix="$butch_prefix" || exit 1
 cat << EOF >MCONFIG 
 

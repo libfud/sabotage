@@ -1,5 +1,5 @@
---- ./finger/finger.h.orig	Sun Feb 25 17:18:59 2001
-+++ ./finger/finger.h	Sun Feb 25 17:19:12 2001
+--- ./finger/finger.h.orig
++++ ./finger/finger.h
 @@ -39,6 +39,7 @@
  
  #include <pwd.h>
