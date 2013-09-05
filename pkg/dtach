@@ -9,7 +9,6 @@ http://pkgs.fedoraproject.org/repo/pkgs/dtach/dtach-0.8.tar.gz/ec5999f3b6bb67da1
 
 [build]
 #patch -p1 < "$K"/some.patch || exit 1
-
 ./configure -C --prefix="$butch_prefix" || exit 1
 CFLAGS="$optcflags" LDFLAGS="$optldflags" \
 make -j$MAKE_THREADS || exit 1
