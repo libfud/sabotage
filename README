@@ -15,7 +15,7 @@ Requirements:
 - lots of time and a fair bit of Linux knowledge
 
 This system has been built on Debian 6.0 and 7.0, Ubuntu 13.04, 
-Suse 11.4, and aboriginal 1.1, 1.2 systems.
+Suse 11.4, aboriginal 1.1 and 1.2 systems, and Fedora 19.
 
 You can bootstrap your own build from the scripts at 
 
@@ -52,6 +52,7 @@ DO NOT RUN SCRIPTS YOU HAVE NOT READ.
 # you can look at what's available using 'ls /src/pkg'
 
 # if you want the default kernel (otherwise you have to build it yourself)
+# Beware: Default kernel settings may not support your hardware.
 % butch install kernel
 
 % butch install xorg # install everything needed to get xfbdev
