@@ -13,7 +13,7 @@ for i in kmod kmod-test-stdout kmod-test-glibc-assumption ; do
 	patch -p1 < "$K"/"$i".patch || exit 1
 done
 
-CFLAGS="-D_GNU_SOURCE $optcflags" LDFLAGS="$optldflags" \
+CFLAGS="-D_GNU_SOURCE" LDFLAGS="$optldflags" \
   ./configure -C --prefix="$butch_prefix" || exit 1
 
 make -j$MAKE_THREADS || exit 1
