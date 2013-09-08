@@ -13,6 +13,6 @@ libusbx
 
 [build]
 CFLAGS="$optcflags" \
- ./configure --prefix="$optcflags"
+ ./configure --prefix="$butch_prefix"
 make -j$MAKE_THREADS || exit 1
 make DESTDIR="$butch_install_dir" install || exit 1
