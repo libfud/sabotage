@@ -18,7 +18,7 @@ cp $K/ncurses-fallback.c ncurses/fallback.c
 # needs to block on fd 1 (which they assume to be a tty).
 CFLAGS="-D_GNU_SOURCE $optcflags" ./configure -C \
    --with-normal --without-tests \
-   --with-shared \
+   --with-shared --enable-widec \
    --enable-sigwinch --with-fallbacks="linux vt100 xterm xterm256-color" \
    --prefix="$butch_prefix" --includedir="$butch_prefix"/include --mandir="$butch_prefix"/share/man \
    --disable-nls --without-dlsym --without-cxx-binding </dev/ptmx || exit 1
