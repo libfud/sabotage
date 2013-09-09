@@ -11,6 +11,7 @@ sdl
 alsa-lib
 zlib
 libpng
+glu
 
 [build]
 patch -p1 < "$K"/dosbox.patch || exit 1
