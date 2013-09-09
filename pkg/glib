@@ -7,11 +7,11 @@ pkgconf
 zlib-dynamic
 
 [mirrors]
-http://ftp.gnome.org/pub/gnome/sources/glib/2.36/glib-2.36.3.tar.xz
+http://ftp.gnome.org/pub/GNOME/sources/glib/2.37/glib-2.37.7.tar.xz
 
 [main]
-filesize=6626972
-sha512=1ea45e7978bffb8ec23c8eddb74b0bab686126fd55d96956203bc1eef44e3047edcf2cbc39e018c83e56093f806c739bf320e6a359b45cd652e55c94a6f1ad19
+filesize=6778616
+sha512=526762edfb12867c6833fdc58ac8b607018100e5daa3c95e94308ea2848325c6cbfe63db280f0032553e6dcbc3afcdb7a5a42d12247c0484751f64e2b5513096
 
 [build]
 for p in glib-gtimer-varargs glib-no_python ; do
