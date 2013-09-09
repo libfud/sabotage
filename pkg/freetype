@@ -1,14 +1,14 @@
+[mirrors]
+http://downloads.sourceforge.net/sourceforge/libpng/libpng-1.5.17.tar.xz
 [main]
-filesize=1442053
-sha512=2c91ee53c25deec13588618cbfc87e14b0db2a325c5413063ee2f51080c5ad7706f0060bb3125e3abe55de132d07a5dd8e729c8bf4b87ccb3cf04fc6f11fb78c
+filesize=721568
+sha512=e658dccce8c4de084e9cc4a00526252cc484e3a20f04e3143c799125603363212c143f05d8452180444d94246a2321c9ff994e2de9b4af2fa36c673f19313071
 
 [deps]
 zlib-dynamic
 
-[mirrors]
-http://download.savannah.gnu.org/releases/freetype/freetype-2.4.4.tar.bz2
-
 [build]
-./configure -C --prefix="$butch_prefix"  || exit 1
-make DESTDIR="$butch_install_dir" -j$MAKE_THREADS install || exit 1
-
+#patch -p1 < "$K/some.patch"
+CFLAGS=-D_GNU_SOURCE ./configure -C --prefix="$butch_prefix" || exit 1
+make -j$MAKE_THREADS || exit 1
+make DESTDIR="$butch_install_dir" install || exit 1
