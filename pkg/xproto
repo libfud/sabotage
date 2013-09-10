@@ -1,9 +1,9 @@
 [main]
-filesize=275913
-sha512=1c76dfb97b8df1afd0133ebfdedbe9dbf96ebc552370166424fd80748d2dba5f0713bde5f9070e3dedf7d26bace0c5dcf9cdc75ff4c16d613d5e3a7bc128a5a1
+filesize=357317
+sha512=76543f630d5e04d23b4288750192f007b7d4abc7401d26983d7fa806b5b46751b0b46281cf9bc10397edd46416fdbdd6a559204e38d3d68bf023896f21ad2199
 
 [mirrors]
-ftp://ftp.x.org/pub/individual/proto/xproto-7.0.21.tar.bz2
+ftp://ftp.x.org/pub/individual/proto/xproto-7.0.24.tar.gz
 
 [build]
 ./configure -C --prefix="$butch_prefix" || exit 1
