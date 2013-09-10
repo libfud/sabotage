@@ -1,0 +1,17 @@
+[main]
+filesize=354584
+sha512=1f7577f34bedf7536d23856b69bc3b67941e4c5942eed9a91ccd399ec9a3b09ba24d792410031f00a99de020b050392c13be715e68627946e483c8bcd89bbb01
+
+[mirrors]
+ftp://ftp.freedesktop.org/pub/xorg/individual/lib/libXcomposite-0.4.4.tar.gz
+
+[deps]
+
+[build]
+#patch -p1 < "$K"/some.patch || exit 1
+
+CFLAGS="-D_GNU_SOURCE $optcflags" LDFLAGS="$optldflags" \
+  ./configure -C --prefix="$butch_prefix" || exit 1
+
+make -j$MAKE_THREADS || exit 1
+make DESTDIR="$butch_install_dir" install || exit 1
