@@ -1,0 +1,18 @@
+[main]
+filesize=117169
+sha512=19ae011acddd11fca323cc51e5fb297810447c644549502becef2e2fc548dbd78e5a7dd8e785235ca6585253b9a04ddad009b757db9065921d6b710a37cd07af
+
+[mirrors]
+ftp://ftp.x.org/pub/individual/proto/xf86driproto-2.1.1.tar.gz
+
+[deps]
+xorg-server
+util-macros
+
+[build]
+#patch -p1 < "$K"/some.patch || exit 1
+CFLAGS="-D_GNU_SOURCE $optcflags" LDFLAGS="$optldflags -L/{libdir}" \
+  ./configure -C --prefix="$butch_prefix" || exit 1
+
+make -j$MAKE_THREADS || exit 1
+make DESTDIR="$butch_install_dir" install || exit 1
