@@ -1,0 +1,18 @@
+[main]
+filesize=21841928
+sha512=74e22b792d6812c1bf2192f2572f75ec8a14fac5e9b00850f9225279fc09da913082001bef20595f6634a5c3f3335e92906568023544516da69a775bcf5e2a1a
+tardir=icu/source
+
+[mirrors]
+http://download.icu-project.org/files/icu4c/51.2/icu4c-51_2-src.tgz
+
+[deps]
+
+[build]
+
+CFLAGS="-D_GNU_SOURCE $optcflags" LDFLAGS="$optldflags" \
+  ./configure -C --prefix="$butch_prefix" || exit 1
+
+patch -p1 < "$K"/libICU.patch || exit 1
+make -j$MAKE_THREADS || exit 1
+make DESTDIR="$butch_install_dir" install || exit 1

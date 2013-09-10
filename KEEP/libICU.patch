@@ -1,0 +1,12 @@
+--- source.org/common/putil.cpp
++++ source/common/putil.cpp
+@@ -634,9 +634,7 @@
+ U_CAPI int32_t U_EXPORT2
+ uprv_timezone()
+ {
+ #ifdef U_TIMEZONE
+-    return U_TIMEZONE;
+-#else
+     time_t t, t1, t2;
+     struct tm tmrec;
+     UBool dst_checked;
