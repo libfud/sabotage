@@ -17,7 +17,6 @@ libdevmapper
 patch -p1 < "$K"/cryptsetup-devpath.patch || exit 1
 patch -p1 < "$K"/cryptsetup-random.patch || exit 1
 CFLAGS=-D_GNU_SOURCE \
- LDFLAGS="-lintl" \
  ./configure -C --prefix="$butch_prefix" \
   --with-crypto_backend=openssl || exit 1
 make -j$MAKE_THREADS || exit 1
