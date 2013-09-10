@@ -1,0 +1,18 @@
+[main]
+filesize=1977431
+sha512=ca9680716445d0e9ba1a5d87433455f7a5f558802b4d214d79496426dbfd3e598968f784b531de024df30fefcc114d6e40cc9c6da94604beb48cd4430bf9e491
+
+[mirrors]
+http://xorg.freedesktop.org/archive/individual/driver/xf86-video-intel-2.21.15.tar.bz2
+
+[deps]
+xorg-server
+util-macros
+
+[build]
+#patch -p1 < "$K"/some.patch || exit 1
+CFLAGS="-D_GNU_SOURCE $optcflags" LDFLAGS="$optldflags -L/{libdir}" \
+  ./configure -C --prefix="$butch_prefix" || exit 1
+
+make -j$MAKE_THREADS || exit 1
+make DESTDIR="$butch_install_dir" install || exit 1
