@@ -1,0 +1,19 @@
+[main]
+filesize=674611
+sha512=74ec229ada8e0f88c0eb389ad1583a7f6d36f112c4fb47453908ce6e35335cc12de237ef3c0f385a2fd72b7d3ed84925fc8cddcc29eeb5f2d1e13ae58ecc7bc3
+
+[mirrors]
+http://ftp.gnome.org/pub/GNOME/sources/gail/1.22/gail-1.22.3.tar.bz2
+
+[deps]
+gtk+2
+atk
+
+[build]
+#patch -p1 < "$K"/some.patch || exit 1
+
+CFLAGS="-D_GNU_SOURCE $optcflags" LDFLAGS="$optldflags" \
+  ./configure -C --prefix="$butch_prefix" || exit 1
+
+make -j$MAKE_THREADS || exit 1
+make DESTDIR="$butch_install_dir" install || exit 1
