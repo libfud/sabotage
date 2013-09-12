@@ -12,6 +12,7 @@ libpng
 glib
 pixman
 libx11
+directfb
 
 [build]
 #patch -p1 < "$K/some.patch"
